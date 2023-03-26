@@ -1,0 +1,54 @@
+#include<bits/stdc++.h>
+using namespace std;
+ 
+int main(){
+    
+    long long t,n;
+    
+    
+    cin>>t;
+    
+    while(t--){
+        string s;
+        
+        cin>>n;
+        cin>>s;
+        if(s[0]=='1' || s[n-1]=='1'){
+            cout<<2*n<<endl;
+        }
+        
+        else{
+        int leftone=-1;
+        
+        for(int i=0;i<n;i++){
+            if(s[i]=='1'){
+                leftone=i;
+                break;
+            }
+        }
+        if(leftone==-1){
+            cout<<n<<endl; 
+            continue;
+        }
+        int rightone=-1;
+        for(int i=n-1;i>=0;i--){
+            if(s[i]=='1'){
+                rightone=i;
+                break;
+            }
+        }
+        
+        int roomsfromright=0;
+        int roomsfromleft=0;
+        
+        roomsfromright=(n-leftone)*2;
+        roomsfromleft=(rightone+1)*2;
+        int ans=max(roomsfromright,roomsfromleft);
+        cout<<ans<<endl;
+        
+        }
+        
+    }
+    
+    return 0;
+}
